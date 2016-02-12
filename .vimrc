@@ -7,13 +7,17 @@
 "  ------------------------------------------------------------------------------------------------------------------------------------
 "
 "links to Plugin data
-" lightline.vim:	https://github.com/itchyny/lightline.vim
-" neocomplcache.vim:	https://github.com/Shougo/neocomplcache.vim.git
-" nerdtree:		https://github.com/scrooloose/nerdtree
-" undotree:		https://github.com/mbbill/undotree
-" vim-autoclose:	https://github.com/Townk/vim-autoclose.git
-" vim-sensible:		https://github.com/tpope/vim-sensible
-" vim-surround:		https://github.com/tpope/vim-surround
+" -lightline.vim:		https://github.com/itchyny/lightline.vim
+" -neocomplcache.vim:		https://github.com/Shougo/neocomplcache.vim.git
+" -nerdtree:			https://github.com/scrooloose/nerdtree
+" -undotree:			https://github.com/mbbill/undotree
+" -vim-autoclose:		https://github.com/Townk/vim-autoclose.git
+" -vim-sensible:		https://github.com/tpope/vim-sensible
+" -vim-surround:		https://github.com/tpope/vim-surround
+" -SearchComplete:		https://github.com/vim-scripts/SearchComplete.git
+" -Syntastic			https://github.com/scrooloose/syntastic.git
+" -Sparkup			https://github.com/rstacruz/sparkup.git
+" -ctrlp.vim 			https://github.com/kien/ctrlp.vim.git
 
 syntax enable					   "enables syntax highlighting 
 set number 					   "enables line numbers to be relitive to the cursor
@@ -65,8 +69,37 @@ endif
 						   "maps 'L', 'H' to <C-W> to change windows faster
 map L <C-w>l
 map H <C-w>h
+						   "sparkup Mappings in insert mode
+let g:sparkupExecuteMapping = '<c-e>'
 
-						   
+						   "Syntastic basic configuration
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+						   "Linters selected
+let g:syntastic_perl_checkers = ['perl']
+let g:syntastic_html_checkers = ['validator']
+let g:syntastic_enable_perl_checker = 1
+
+						   "ctrlp key mappings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+"Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+"Press <c-f> and <c-b> to cycle between modes.
+"Press <c-d> to switch to filename only search instead of full path.
+"Press <c-r> to switch to regexp mode.
+"Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+"Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+"Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+"Use <c-y> to create a new file and its parent directories.
+"Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+
+
+"To turn off AutoClose fast if needed
 map <C-a> :AutoCloseToggle<CR>  
 "vim-autoclose"
 "	This plugin helps with surrounding input.
